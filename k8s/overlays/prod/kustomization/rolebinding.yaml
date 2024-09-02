@@ -1,0 +1,13 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  namespace: druid
+  name: druid-mm-autoscaler-rolebinding
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: druid-mm-autoscaler-role
+subjects:
+- kind: ServiceAccount
+  name: default
+  namespace: druid

@@ -1,0 +1,30 @@
+prod:
+  mm_service: druid-middle-manager
+  overlord_service: druid-overlord
+  suffix_domain: svc.cluster.local
+  namespace: druid
+  middle_manager: druid-middle-manager
+
+staging:
+  mm_service: druid-staging-middle-manager
+  overlord_service: druid-staging-overlord
+  suffix_domain: svc.cluster.local
+  namespace: druid-staging
+  middle_manager: druid-staging-middle-manager
+
+ports:
+  overlord: 8081
+  middle_manager: 8091
+
+routes:
+  get_workers: /druid/indexer/v1/workers
+  disable_worker: /druid/worker/v1/disable
+  enable_worker: /druid/worker/v1/enable
+  worker_status: /druid/worker/v1/enabled
+  pending_tasks : /druid/indexer/v1/pendingTasks
+  running_tasks: /druid/worker/v1/tasks
+  all_running_tasks: /druid/indexer/v1/runningTasks 
+
+min_mm_count: 1
+max_mm_count: 4
+workers_per_mm: 15

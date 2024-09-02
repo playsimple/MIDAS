@@ -1,0 +1,21 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: druid-mm-autoscaler
+  namespace: druid
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: druid-mm-autoscaler
+    spec:
+      containers:
+      - name: druid-mm-autoscaler
+        image: devrahulsharma1/druid-mm-autoscaler:version1
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
+        env:
+            - name: env
+              value: "prod"

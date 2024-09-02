@@ -1,0 +1,5 @@
+schedule==1.2.1
+munch==4.0.0
+requests==2.32.2
+awscli==1.32.111
+pyyaml==6.0.1
